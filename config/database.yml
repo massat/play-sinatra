@@ -1,6 +1,6 @@
 development:
   adapter: mysql2
   host: mysqld
-  username: dev
-  password: dev
-  database: dev
+  username: play
+  password: play
+  database: play

@@ -17,8 +17,10 @@ services:
     image: "redis:alpine"
   mysqld:
     image: "mysql:5.7"
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 1
-      MYSQL_DATABASE: dev
-      MYSQL_USER: dev
-      MYSQL_PASSWORD: dev
+      MYSQL_DATABASE: play
+      MYSQL_USER: play
+      MYSQL_PASSWORD: play
