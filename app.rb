@@ -17,6 +17,10 @@ module Play
   class App < Sinatra::Base
 
     configure do
+      Dir["models/*.rb"].each do |model|
+        require_relative model
+      end
+
       ActiveRecord::Base.schema_format = :sql
       ActiveRecord::Base.establish_connection(Play::db_conf)
     end
