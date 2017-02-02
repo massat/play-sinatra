@@ -1,0 +1,24 @@
+version: '2.1'
+services:
+  app:
+    environment:
+      RACK_ENV: development
+    build: .
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      redis:
+        condition: service_started
+      mysqld:
+        condition: service_started
+  redis:
+    image: "redis:alpine"
+  mysqld:
+    image: "mysql:5.7"
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 1
+      MYSQL_DATABASE: dev
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev
