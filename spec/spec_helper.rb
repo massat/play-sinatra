@@ -1,3 +1,4 @@
+require 'rspec'
 require_relative '../app.rb'
 
 RSpec.configure do |config|
